@@ -1,0 +1,35 @@
+name: Cron Job Validation
+on:
+  schedule:
+    - cron: "5 * * * *"
+
+jobs:
+  validation:
+    name: Suggest Chain Validation Check
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Setup nodejs
+        uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+
+      - run: npm install
+      - run: npm install --global yarn
+
+      - name: Fetch action
+        id: fetch
+        uses: Rishabh510/Path-lister-action@master
+        with:
+          path: ".cosmos/"
+          type: ".json"
+
+      - name: Output results
+        run: |
+          echo "Found ${{ steps.fetch.outputs.path_count }} file(s) with this extension:"
+          for i in ${{ steps.fetch.outputs.paths }}; do
+          echo $i
+          done
