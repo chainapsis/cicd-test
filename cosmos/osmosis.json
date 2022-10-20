@@ -1,6 +1,6 @@
 {
   "chainId": "osmosis-1",
-  "chainName": "Osmosis",
+  "chainName": "Osmosis Test",
   "rpc": "https://rpc-osmosis.keplr.app",
   "rest": "https://lcd-osmosis.keplr.app",
   "walletUrlForStaking": "https://wallet.keplr.app/chains/osmosis",
