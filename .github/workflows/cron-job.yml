@@ -24,7 +24,7 @@ jobs:
         id: fetch
         uses: Rishabh510/Path-lister-action@master
         with:
-          path: ".cosmos/"
+          path: "cosmos/"
           type: ".json"
 
       - name: Output results
