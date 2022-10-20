@@ -1,7 +1,7 @@
 name: Cron Job Validation
 on:
   schedule:
-    - cron: "*/5 * * * *"
+    - cron: "*/10 * * * *"
 
 jobs:
   validation:
@@ -29,7 +29,8 @@ jobs:
 
       - name: Output results
         run: |
-          echo "Found ${{ steps.fetch.outputs.path_count }} file(s) with this extension:"
-          for i in ${{ steps.fetch.outputs.paths }}; do
-          echo $i
+          for file in ${{ steps.fetch.outputs.paths }}; do
+          if [[ $file == *".json"* ]]; then
+              yarn ts-node src/index.ts $file
+            fi
           done

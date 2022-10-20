@@ -12,7 +12,6 @@
   "license": "",
   "dependencies": {
     "@keplr-wallet/background": "^0.11.12",
-    "@keplr-wallet/cosmos": "^0.8.8",
     "axios": "^0.27.2",
     "image-size": "^1.0.2"
   },

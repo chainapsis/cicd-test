@@ -494,13 +494,6 @@
     buffer "^6.0.3"
     delay "^4.4.0"
 
-"@keplr-wallet/common@^0.8.8":
-  version "0.8.8"
-  resolved "https://registry.yarnpkg.com/@keplr-wallet/common/-/common-0.8.8.tgz#89945d5b01c7c055f3938925409399cc655a8f7e"
-  integrity sha512-sdFBtBnqVbab+e6Bg3t7bLtdsADCjR+ahP3qprJ1+Nf3VD1GVVtpbWn1jHZ5N5xT2s0kFLIR9cIP79dChaVRIA==
-  dependencies:
-    delay "^4.4.0"
-
 "@keplr-wallet/cosmos@0.11.12":
   version "0.11.12"
   resolved "https://registry.yarnpkg.com/@keplr-wallet/cosmos/-/cosmos-0.11.12.tgz#8c0485363c909b3aeea357d3e7f0cbde51faa33a"
@@ -517,21 +510,6 @@
     buffer "^6.0.3"
     long "^4.0.0"
     protobufjs "^6.11.2"
-
-"@keplr-wallet/cosmos@^0.8.8":
-  version "0.8.15"
-  resolved "https://registry.yarnpkg.com/@keplr-wallet/cosmos/-/cosmos-0.8.15.tgz#93d8065d3eba9f1afbad8f8552f5c960496be4f5"
-  integrity sha512-GPIMemmnswAD7dpsyf4Vsrmx6hBb+dk5o1lpgFZLo4rP3jxZYOoXTWVzV6UVeXihmOgLQxkAA0f6C5lP0/bmvQ==
-  dependencies:
-    "@cosmjs/launchpad" "^0.24.0-alpha.25"
-    "@keplr-wallet/common" "^0.8.8"
-    "@keplr-wallet/types" "^0.8.13"
-    "@keplr-wallet/unit" "^0.8.13"
-    axios "^0.21.0"
-    bech32 "^1.1.4"
-    buffer "^6.0.3"
-    long "^4.0.0"
-    protobufjs "^6.10.2"
 
 "@keplr-wallet/crypto@0.11.12":
   version "0.11.12"
@@ -587,32 +565,12 @@
     long "^4.0.0"
     secretjs "0.17.7"
 
-"@keplr-wallet/types@^0.8.13":
-  version "0.8.13"
-  resolved "https://registry.yarnpkg.com/@keplr-wallet/types/-/types-0.8.13.tgz#c4ea5e5f08af3c8b2708c786b2e85f9aa4c24a4e"
-  integrity sha512-UaVATHmGaC5REyprLahyNIC3pZZQV+VTxMz10X3+hD6w2YgyLKimmqVg7ndVQhZrNZrVmMqgATl/UCCFgE6hlQ==
-  dependencies:
-    "@cosmjs/launchpad" "^0.24.0-alpha.25"
-    "@cosmjs/proto-signing" "^0.24.0-alpha.25"
-    axios "^0.21.0"
-    long "^4.0.0"
-    secretjs "^0.16.0"
-
 "@keplr-wallet/unit@0.11.12":
   version "0.11.12"
   resolved "https://registry.yarnpkg.com/@keplr-wallet/unit/-/unit-0.11.12.tgz#5fbb9a35d8250b52c6e85757554ec59190a4bcc8"
   integrity sha512-ZvVm/iFOq/7NfytTznOE6M8iQPaprGT/ew6Rtd5kMDenvR12uH6HMnwzOMqfuJqi9o1vnyqXL2RRi+GqVgaL4A==
   dependencies:
     "@keplr-wallet/types" "0.11.12"
-    big-integer "^1.6.48"
-    utility-types "^3.10.0"
-
-"@keplr-wallet/unit@^0.8.13":
-  version "0.8.13"
-  resolved "https://registry.yarnpkg.com/@keplr-wallet/unit/-/unit-0.8.13.tgz#f12d84dc218fbbe334d57e751b88fe10c9adece1"
-  integrity sha512-A3w+TL2Z6Uh/+jYfRaSHUjkukUnyAMhLAw3TwwW9wBbYd87aZNQ/oZfoNKbyMOCisZeEbYNXT/FZoOfrdXH6kw==
-  dependencies:
-    "@keplr-wallet/types" "^0.8.13"
     big-integer "^1.6.48"
     utility-types "^3.10.0"
 
@@ -876,7 +834,7 @@ axios@0.21.1:
   dependencies:
     follow-redirects "^1.10.0"
 
-axios@^0.21.0, axios@^0.21.1:
+axios@^0.21.1:
   version "0.21.4"
   resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.4.tgz#c67b90dc0568e5c1cf2b0b858c43ba28e2eda575"
   integrity sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==
@@ -1371,7 +1329,7 @@ pbkdf2@^3.0.16, pbkdf2@^3.0.9, pbkdf2@^3.1.1, pbkdf2@^3.1.2:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
-protobufjs@6.11.3, protobufjs@^6.10.2, protobufjs@^6.11.2:
+protobufjs@6.11.3, protobufjs@^6.11.2:
   version "6.11.3"
   resolved "https://registry.yarnpkg.com/protobufjs/-/protobufjs-6.11.3.tgz#637a527205a35caa4f3e2a9a4a13ddffe0e7af74"
   integrity sha512-xL96WDdCZYdU7Slin569tFX712BxsxslWwAfAhCYjQKGTq7dAU91Lomy6nLLhh/dyGhk/YH4TwTSRxTzhuHyZg==
@@ -1491,22 +1449,6 @@ secretjs@0.17.7:
     miscreant "0.3.2"
     pako "1.0.11"
     protobufjs "6.11.3"
-    secure-random "1.1.2"
-
-secretjs@^0.16.0:
-  version "0.16.7"
-  resolved "https://registry.yarnpkg.com/secretjs/-/secretjs-0.16.7.tgz#8c816ddef476a1d7ac877f86807a037c249cedf0"
-  integrity sha512-HL2Ekui0TFQhWrzQ5IenI3a54IaD9UdXwdyYMMLhisQCm5/quMw/v4CxmjEro+b5FxlEYvWcgzFO6nntduywDg==
-  dependencies:
-    "@iov/crypto" "2.1.0"
-    "@iov/encoding" "2.1.0"
-    "@iov/utils" "2.0.2"
-    axios "0.21.1"
-    curve25519-js "0.0.4"
-    fast-deep-equal "3.1.1"
-    js-crypto-hkdf "0.7.3"
-    miscreant "0.3.2"
-    pako "1.0.11"
     secure-random "1.1.2"
 
 secure-random@1.1.2:
