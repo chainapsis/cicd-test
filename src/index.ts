@@ -1,5 +1,8 @@
+import { getChainIndetifier } from "./validation";
+
 const main = async () => {
-  console.log("main function test");
+  const test = getChainIndetifier("cosmoshub-1");
+  console.log(test);
 };
 
 main();
