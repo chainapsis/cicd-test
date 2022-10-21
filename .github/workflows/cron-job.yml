@@ -31,7 +31,7 @@ jobs:
         id: check-update
         continue-on-error: true
         run: |
-          LINT=$(yarn ts-node src/schedule.ts)
+          LINT=$(yarn ts-node src/schedule.ts || true)
           echo "$LINT"
 
       # - name: Slack Alert Notification
