@@ -28,12 +28,13 @@ jobs:
           type: ".json"
 
       - name: Check chain updates
-        id: check
+        id: check-update
         continue-on-error: true
         run: |
           for file in ${{ steps.fetch.outputs.paths }}; do
-          if [[ $file == *".json"* ]]; then
-              yarn ts-node src/index.ts $file
+            if [[ $file == *".json"* ]]; then
+                yarn ts-node src/index.ts $file
+                echo "${{ steps.check-update.outputs.errorOutput }}""
             fi
           done
 
@@ -52,7 +53,7 @@ jobs:
                     {
                       "title": "Status",
                       "short": true,
-                      "value": "${{ steps.check.outputs.errorOutput }}"
+                      "value": "output value ${{ steps.check-update.outputs.errorOutput }}"
                     }
                   ]
                 }

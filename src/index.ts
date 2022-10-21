@@ -2,6 +2,7 @@
 import { readFileSync } from "fs";
 import { ChainInfo } from "@keplr-wallet/types";
 import { ChainUpdaterService } from "@keplr-wallet/background";
+import { validateBasicChainInfoType } from "@keplr-wallet/chain-validator";
 
 import core from "@actions/core";
 
@@ -16,29 +17,36 @@ const main = async () => {
   const args = process.argv.slice(2);
 
   // get json from file
-  const chainInfo = getFileToJson(args[0]);
+  const rawChainInfo = getFileToJson(args[0]);
 
-  // validate chain information
   try {
-    const updateInfo = await ChainUpdaterService.checkChainUpdate(chainInfo);
+    // validate chain information
+    const validChainInfo = await validateBasicChainInfoType(rawChainInfo);
+
+    // validate chain update
+    const updateInfo = await ChainUpdaterService.checkChainUpdate(
+      validChainInfo
+    );
 
     // Check chain id
-    if (chainInfo.chainId !== updateInfo.chainId) {
-      core.setOutput("errorOutput", `Invalid chain id ${chainInfo.chainId}`);
-      core.setFailed(`Invalid chain id ${chainInfo.chainId}`);
-      throw new Error(`Invalid chain id ${chainInfo.chainId}`);
+    if (validChainInfo.chainId !== updateInfo.chainId) {
+      core.setOutput(
+        "errorOutput",
+        `Invalid chain id ${validChainInfo.chainId}`
+      );
     }
 
     // Check chain features
     if (updateInfo.features?.length !== 0) {
-      throw new Error(
+      core.setOutput(
+        "errorOutput",
         `${
-          chainInfo.chainName
+          validChainInfo.chainName
         } will have to updated features ${updateInfo.features?.join(", ")}`
       );
     }
   } catch {
-    throw new Error(`Invalid ${chainInfo.chainName} information`);
+    core.setOutput("errorOutput", `Invalid Chain Information`);
   }
 };
 
