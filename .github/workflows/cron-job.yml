@@ -40,15 +40,15 @@ jobs:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           payload: |
             {
-              "text": "Deployment started (In Progress)",
+              "text": "Suggest Chain ",
               "attachments": [
                 {
-                  "color": "dbab09",
+                  "color": "FFF6F8",
                   "fields": [
                     {
-                      "title": "Status",
+                      "title": "Error Message",
                       "short": true,
-                      "value": "output value ${{ steps.check-update.outputs.errorOutput }}"
+                      "value": "output value ${{ steps.check-update.outputs.errorMessage }}"
                     }
                   ]
                 }
