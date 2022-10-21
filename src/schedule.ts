@@ -1,6 +1,6 @@
 import { readdirSync } from "fs";
 import { getFileToChainInfo, validateChainInfo } from "./validate";
-import core from "@actions/core";
+import * as core from "@actions/core";
 
 const main = async () => {
   const jsonFiles = readdirSync("cosmos");
