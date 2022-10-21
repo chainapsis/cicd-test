@@ -33,30 +33,26 @@ jobs:
         run: |
           yarn ts-node src/schedule.ts
 
-      - name: Variable Test
-        run: |
-          echo "${{ steps.check-update.outputs.errorMessage }}"
-          echo "${{ steps.check-update.outputs.hasError }}"
-
-      # - name: Slack Alert Notification
-      #   uses: slackapi/slack-github-action@v1.23.0
-      #   with:
-      #     channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-      #     payload: |
-      #       {
-      #         "text": "Deployment started (In Progress)",
-      #         "attachments": [
-      #           {
-      #             "color": "dbab09",
-      #             "fields": [
-      #               {
-      #                 "title": "Status",
-      #                 "short": true,
-      #                 "value": "output value ${{ steps.check-update.outputs.errorOutput }}"
-      #               }
-      #             ]
-      #           }
-      #         ]
-      #       }
-      #   env:
-      #     SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+      - name: Slack Alert Notification
+        uses: slackapi/slack-github-action@v1.23.0
+        if: ${{ steps.check-update.outputs.hasError }}
+        with:
+          channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
+          payload: |
+            {
+              "text": "Deployment started (In Progress)",
+              "attachments": [
+                {
+                  "color": "dbab09",
+                  "fields": [
+                    {
+                      "title": "Status",
+                      "short": true,
+                      "value": "output value ${{ steps.check-update.outputs.errorOutput }}"
+                    }
+                  ]
+                }
+              ]
+            }
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
