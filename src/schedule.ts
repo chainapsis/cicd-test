@@ -1,5 +1,6 @@
 import { readdirSync } from "fs";
 import { getFileToChainInfo, validateChainInfo } from "./validate";
+import core from "@actions/core";
 
 const main = async () => {
   const jsonFiles = readdirSync("cosmos");
@@ -13,7 +14,7 @@ const main = async () => {
     })
   );
 
-  return errorMessages.join("\n");
+  core.setFailed(errorMessages.join("\n"));
 };
 
 main();
