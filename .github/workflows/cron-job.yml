@@ -40,7 +40,7 @@ jobs:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
           payload: |
             {
-              "text": "Suggest Chain ",
+              "text": "Suggest Chain Alert",
               "attachments": [
                 {
                   "color": "FFF6F8",
@@ -48,7 +48,7 @@ jobs:
                     {
                       "title": "Error Message",
                       "short": true,
-                      "value": "output value ${{ steps.check-update.outputs.errorMessage }}"
+                      "value": ${{ steps.check-update.outputs.errorMessage }}
                     }
                   ]
                 }
