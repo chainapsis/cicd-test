@@ -42,5 +42,10 @@
     "coinDecimals": 6,
     "coinGeckoId": "axelar"
   },
-  "features": ["ibc-transfer", "ibc-go", "axelar-evm-bridge"]
+  "features": [
+    "ibc-transfer",
+    "ibc-go",
+    "axelar-evm-bridge",
+    "query:/cosmos/bank/v1beta1/spendable_balances"
+  ]
 }
