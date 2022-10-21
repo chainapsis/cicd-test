@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "ts-node src/index.ts cosmos/osmosis.json",
+    "dev": "ts-node src/index.ts cosmos/axelar-dojo.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -12,7 +12,8 @@
   "license": "",
   "dependencies": {
     "@actions/core": "^1.10.0",
-    "@keplr-wallet/background": "^0.11.12",
+    "@keplr-wallet/background": "^0.12.0-alpha.0",
+    "@keplr-wallet/chain-validator": "^0.12.0-alpha.0",
     "axios": "^0.27.2",
     "image-size": "^1.0.2"
   },
