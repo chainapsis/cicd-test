@@ -1,8 +1,8 @@
 {
-  "rpc": "https://rpc.chihuahua.wtf",
-  "rest": "https://api.chihuahua.wtf",
   "chainId": "chihuahua-1",
   "chainName": "Chihuahua",
+  "rpc": "https://rpc.chihuahua.wtf",
+  "rest": "https://api.chihuahua.wtf",
   "bip44": {
     "coinType": 118
   },
