@@ -43,11 +43,11 @@ jobs:
               "text": "Suggest Chain Alert",
               "attachments": [
                 {
-                  "color": "FFF6F8",
+                  "color": "FB486C",
                   "fields": [
                     {
                       "title": "Error Message",
-                      "short": true,
+                      "short": false,
                       "value": "${{ steps.check-update.outputs.errorMessage }}"
                     }
                   ]
