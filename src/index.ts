@@ -3,6 +3,8 @@ import { readFileSync } from "fs";
 import { ChainInfo } from "@keplr-wallet/types";
 import { ChainUpdaterService } from "@keplr-wallet/background";
 
+import core from "@actions/core";
+
 const getFileToJson = (filePath: string) => {
   const file = readFileSync(filePath, "utf-8");
   const chainInfo: ChainInfo = JSON.parse(file);
@@ -22,6 +24,8 @@ const main = async () => {
 
     // Check chain id
     if (chainInfo.chainId !== updateInfo.chainId) {
+      core.setOutput("errorOutput", `Invalid chain id ${chainInfo.chainId}`);
+      core.setFailed(`Invalid chain id ${chainInfo.chainId}`);
       throw new Error(`Invalid chain id ${chainInfo.chainId}`);
     }
 

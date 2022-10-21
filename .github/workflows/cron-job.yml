@@ -28,6 +28,7 @@ jobs:
           type: ".json"
 
       - name: Check chain updates
+        id: check
         continue-on-error: true
         run: |
           for file in ${{ steps.fetch.outputs.paths }}; do
@@ -36,10 +37,26 @@ jobs:
             fi
           done
 
-      - name: Setup nodejs
+      - name: Slack Alert Notification
         uses: slackapi/slack-github-action@v1.23.0
         with:
           channel-id: ${{ secrets.SLACK_CHANNEL_ID }}
-          slack-message: "GitHub build result: ${{ job.status }}\n${{ github.event.pull_request.html_url || github.event.head_commit.url }}"
+          payload: |
+          {
+            "text": "Fail to check suggest chain validation",
+            "attachments": [
+              {
+                "pretext": "Fail",
+                "color": "dbab09",
+                "fields": [
+                  {
+                    "title": "Status",
+                    "short": true,
+                    "value": "${{ steps.check.outputs.errorOutput }}"
+                  }
+                ]
+              }
+            ]
+          }
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
