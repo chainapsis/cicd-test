@@ -52,7 +52,7 @@ jobs:
                     {
                       "title": "Status",
                       "short": true,
-                      "value": "In Progress"
+                      "value": "${{ steps.check.outputs.errorOutput }}"
                     }
                   ]
                 }
