@@ -28,6 +28,7 @@ jobs:
           type: ".json"
 
       - name: Check chain updates
+        continue-on-error: true
         run: |
           for file in ${{ steps.fetch.outputs.paths }}; do
           if [[ $file == *".json"* ]]; then
