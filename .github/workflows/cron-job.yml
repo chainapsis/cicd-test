@@ -48,7 +48,7 @@ jobs:
                     {
                       "title": "Error Message",
                       "short": true,
-                      "value": ${{ steps.check-update.outputs.errorMessage }}
+                      "value": "${{ steps.check-update.outputs.errorMessage }}"
                     }
                   ]
                 }

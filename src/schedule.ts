@@ -17,7 +17,7 @@ const main = async () => {
 
   if (errorMessages.filter((message) => message).length !== 0) {
     core.setOutput("hasError", true);
-    core.setOutput("errorMessage", errorMessages.join("\n"));
+    core.setOutput("errorMessage", JSON.stringify(errorMessages.join("\n")));
   }
 };
 
