@@ -31,7 +31,8 @@ jobs:
         id: check-update
         continue-on-error: true
         run: |
-          echo yarn ts-node src/schedule.ts
+          LINT=$(yarn ts-node src/schedule.ts)
+          echo "$LINT"
 
       # - name: Slack Alert Notification
       #   uses: slackapi/slack-github-action@v1.23.0
