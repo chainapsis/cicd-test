@@ -1,7 +1,10 @@
 name: Cron Job Validation
+# on:
+#   schedule:
+#     - cron: "*/10 * * * *"
 on:
-  schedule:
-    - cron: "*/10 * * * *"
+  pull_request:
+  push:
 
 jobs:
   validation:
