@@ -34,7 +34,7 @@ jobs:
           for file in ${{ steps.fetch.outputs.paths }}; do
             if [[ $file == *".json"* ]]; then
                 yarn ts-node src/index.ts $file
-                echo "${{ steps.check-update.outputs.errorOutput }}""
+                echo "${{ steps.check-update.outputs.errorOutput }}"
             fi
           done
 

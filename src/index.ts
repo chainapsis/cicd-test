@@ -30,23 +30,15 @@ const main = async () => {
 
     // Check chain id
     if (validChainInfo.chainId !== updateInfo.chainId) {
-      core.setOutput(
-        "errorOutput",
-        `Invalid chain id ${validChainInfo.chainId}`
-      );
+      core.setOutput("errorOutput", "Invalid chain id");
     }
 
     // Check chain features
     if (updateInfo.features?.length !== 0) {
-      core.setOutput(
-        "errorOutput",
-        `${
-          validChainInfo.chainName
-        } will have to updated features ${updateInfo.features?.join(", ")}`
-      );
+      core.setOutput("errorOutput", "It will have to updated features");
     }
   } catch {
-    core.setOutput("errorOutput", `Invalid Chain Information`);
+    core.setOutput("errorOutput", "Invalid Chain Information");
   }
 };
 
