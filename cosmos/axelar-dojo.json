@@ -1,6 +1,6 @@
 {
   "chainId": "axelar-dojo-1",
-  "chainName": "Axelar test",
+  "chainName": "Axelar",
   "rpc": "https://rpc-axelar.keplr.app",
   "rest": "https://lcd-axelar.keplr.app",
   "walletUrlForStaking": "https://wallet.keplr.app/chains/axelar",
