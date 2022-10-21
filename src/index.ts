@@ -17,8 +17,25 @@ const main = async () => {
   const chainInfo = getFileToJson(args[0]);
 
   // validate chain information
-  const test = await ChainUpdaterService.checkChainUpdate(chainInfo);
-  console.log(test);
+  try {
+    const updateInfo = await ChainUpdaterService.checkChainUpdate(chainInfo);
+
+    // Check chain id
+    if (chainInfo.chainId !== updateInfo.chainId) {
+      throw new Error(`Invalid chain id ${chainInfo.chainId}`);
+    }
+
+    // Check chain features
+    if (updateInfo.features?.length !== 0) {
+      throw new Error(
+        `${
+          chainInfo.chainName
+        } will have to updated features ${updateInfo.features?.join(", ")}`
+      );
+    }
+  } catch {
+    throw new Error(`Invalid ${chainInfo.chainName} information`);
+  }
 };
 
 main();
