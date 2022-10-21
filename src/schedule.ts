@@ -4,6 +4,7 @@ import * as core from "@actions/core";
 
 const main = async () => {
   const jsonFiles = readdirSync("cosmos");
+  core.setOutput("hasError", false);
 
   const errorMessages = await Promise.all(
     jsonFiles.map((file) => {
@@ -14,7 +15,10 @@ const main = async () => {
     })
   );
 
-  core.setOutput("errorMessage", errorMessages.join("\n"));
+  if (errorMessages.filter((message) => message).length !== 0) {
+    core.setOutput("hasError", true);
+    core.setOutput("errorMessage", errorMessages.join("\n"));
+  }
 };
 
 main();

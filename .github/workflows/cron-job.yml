@@ -35,6 +35,7 @@ jobs:
 
       - name: Variable Test
         run: echo "${{ steps.check-update.outputs.errorMessage }}"
+        run: echo "${{ steps.check-update.outputs.hasError }}"
 
       # - name: Slack Alert Notification
       #   uses: slackapi/slack-github-action@v1.23.0
