@@ -14,7 +14,7 @@ const main = async () => {
     })
   );
 
-  core.setFailed(errorMessages.join("\n"));
+  core.setOutput("errorMessage", errorMessages.join("\n"));
 };
 
 main();
