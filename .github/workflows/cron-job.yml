@@ -20,13 +20,6 @@ jobs:
       - run: npm install
       - run: npm install --global yarn
 
-      - name: Fetch chain files
-        id: fetch
-        uses: Rishabh510/Path-lister-action@master
-        with:
-          path: "cosmos/"
-          type: ".json"
-
       - name: Check chain updates
         id: check-update
         continue-on-error: true
