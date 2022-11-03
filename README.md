@@ -2,6 +2,10 @@
 Keplr Wallet에 체인을 등록하기 위한 기본 정보들을 모아두었습니다.
 추가하고 싶은 체인이 있다면 아래 양식으로 PR을 요청해주시면 됩니다.
 
+## 필수 사항
+ - 체인 정보가 정확해야합니다.(chainId, rpc url, rest url 등)
+ - 체인 이미지가 필요합니다.(png 파일, 256x256 size)
+
 ## Chain Registration Form
 ```typescript
 interface ChainInfo {
