@@ -1,3 +1,4 @@
+import sizeOf from 'image-size';
 import { readFileSync } from "fs";
 import { ChainInfo } from "@keplr-wallet/types";
 import { ChainUpdaterService } from "@keplr-wallet/background";
@@ -34,3 +35,20 @@ export const validateChainInfo = async (chainInfo: ChainInfo) => {
     return `Invalid Chain Information`;
   }
 };
+
+export const checkImage = (fileName: string) => {
+  try {
+    const path = "images/" + fileName + ".png";
+    const dimensions = sizeOf(path);
+    if (dimensions.width !== 256 || dimensions.height !== 256) {
+      throw new Error(
+        "Image size is not 256x256px. size : " + JSON.stringify(dimensions)
+      );
+    }
+  } catch (error) {
+    if(error instanceof Error) {
+      throw new Error(error.message);
+    }
+  }
+}
+
