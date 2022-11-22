@@ -42,10 +42,6 @@
     "coinGeckoId": "chihuahua-token"
   },
   "features": [
-    "ibc-go",
-    "ibc-transfer",
-    "cosmwasm",
-    "wasmd_0.24+",
-    "query:/cosmos/bank/v1beta1/spendable_balances"
+    "cosmwasm"
   ]
 }

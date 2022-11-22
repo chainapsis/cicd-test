@@ -1,23 +1,38 @@
 import { readdirSync } from "fs";
-import { getFileToChainInfo, validateChainInfo } from "./validate";
-import * as core from "@actions/core";
+import { validateChainInfoFromPath } from "./validate";
 
 const main = async () => {
   const jsonFiles = readdirSync("cosmos");
-  core.setOutput("hasError", false);
 
-  const errorMessages = await Promise.all(
-    jsonFiles.map((file) => {
-      const rawChainInfo = getFileToChainInfo(`cosmos/${file}`);
-      const errorMessage = validateChainInfo(rawChainInfo);
+  let errorMessages: (
+    | {
+        file: string;
+        error: any;
+      }
+    | undefined
+  )[] = await Promise.all(
+    jsonFiles.map(async (file) => {
+      try {
+        await validateChainInfoFromPath(`cosmos/${file}`);
+      } catch (e) {
+        return {
+          file,
+          error: e,
+        };
+      }
 
-      return errorMessage;
+      return undefined;
     })
   );
 
-  if (errorMessages.filter((message) => message).length !== 0) {
-    core.setOutput("hasError", true);
-    core.setOutput("errorMessage", errorMessages.join("\\n \\n"));
+  errorMessages = errorMessages.filter((e) => e != null);
+
+  for (const e of errorMessages) {
+    console.log(`Error on: ${e?.file}, ${e?.error?.message || e?.error}`);
+  }
+
+  if (errorMessages.length !== 0) {
+    process.exit(1);
   }
 };
 

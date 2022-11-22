@@ -1,8 +1,8 @@
 {
   "chainId": "osmosis-1",
   "chainName": "Osmosis Test",
-  "rpc": "https://rpc-osmosis.keplr.app",
-  "rest": "https://lcd-osmosis.keplr.app",
+  "rpc": "https://osmosis-rpc.quickapi.com",
+  "rest": "https://osmosis-lcd.quickapi.com",
   "walletUrlForStaking": "https://wallet.keplr.app/chains/osmosis",
   "bip44": {
     "coinType": 118
@@ -43,10 +43,7 @@
     "coinGeckoId": "osmosis"
   },
   "features": [
-    "ibc-go",
-    "ibc-transfer",
     "cosmwasm",
-    "wasmd_0.24+",
     "osmosis-txfees"
   ]
 }

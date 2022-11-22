@@ -1,36 +1,82 @@
-import { checkImage, getFileToChainInfo, validateChainInfo } from "./validate";
-import { checkRestConnectivity } from "@keplr-wallet/chain-validator";
-import { checkRPCConnectivity } from "./connection";
+import { checkImageSize, validateChainInfoFromPath } from "./validate";
+import libPath from "path";
+import { ChainIdHelper } from "@keplr-wallet/cosmos";
 
 const main = async () => {
   // get file name
   const args = process.argv.slice(2);
 
   try {
-    // get json from file
-    const rawChainInfo = getFileToChainInfo(args[0]);
-
-    // check chain image file
-    await checkImage(args[0].split('/')[1].split('.')[0]);
-
-    // check RPC alive
-    await checkRPCConnectivity(rawChainInfo.chainId, rawChainInfo.rpc);
-
-    // check REST alive
-    await checkRestConnectivity(rawChainInfo.chainId, rawChainInfo.rest);
-
-    // validate chain info
-    const errorMessage = await validateChainInfo(rawChainInfo);
-
-    if (errorMessage) {
-      throw new Error(errorMessage);
+    if (args.length > 1) {
+      throw new Error("Too many args");
     }
-  } catch (error) {
-    if(error instanceof Error) {
-      throw new Error(error.message);
+
+    const path = args[0];
+
+    const chainInfo = await validateChainInfoFromPath(path);
+
+    const shouldNodeProvider = (() => {
+      const nativeChains = process.env["NATIVE_CHAINS"];
+      if (nativeChains) {
+        const chainIdentifier = ChainIdHelper.parse(
+          chainInfo.chainId
+        ).identifier;
+
+        if (
+          nativeChains
+            .split(",")
+            .map((s) => s.trim())
+            .includes(chainIdentifier)
+        ) {
+          return false;
+        }
+      }
+      return true;
+    })();
+    if (shouldNodeProvider && !chainInfo.nodeProvider) {
+      throw new Error("Node provider should be provided");
     }
+
+    const chainIdentifier = libPath.parse(path).name;
+
+    const validateImageUrl = (url: string): string => {
+      const baseURL = `https://raw.githubusercontent.com/danielkim89/cicd-test/main/images/${chainIdentifier}/`;
+      if (!url.startsWith(baseURL)) {
+        throw new Error(`Invalid image url: ${url}`);
+      }
+      if (!url.endsWith(".png")) {
+        throw new Error(`Image is not png: ${url}`);
+      }
+
+      return url.replace(baseURL, "");
+    };
+
+    const imageFiles: string[] = [];
+    if (chainInfo.chainSymbolImageUrl) {
+      imageFiles.push(validateImageUrl(chainInfo.chainSymbolImageUrl));
+    }
+    if (chainInfo.stakeCurrency.coinImageUrl) {
+      imageFiles.push(validateImageUrl(chainInfo.stakeCurrency.coinImageUrl));
+    }
+    for (const currency of chainInfo.currencies) {
+      if (currency.coinImageUrl) {
+        imageFiles.push(validateImageUrl(currency.coinImageUrl));
+      }
+    }
+    for (const feeCurrency of chainInfo.feeCurrencies) {
+      if (feeCurrency.coinImageUrl) {
+        imageFiles.push(validateImageUrl(feeCurrency.coinImageUrl));
+      }
+    }
+
+    for (const imageFile of imageFiles) {
+      checkImageSize(`images/${chainIdentifier}/${imageFile}`);
+    }
+  } catch (error: any) {
+    console.log(error?.message || error);
+
+    process.exit(1);
   }
-
 };
 
 main();
