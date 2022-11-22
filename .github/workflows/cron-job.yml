@@ -17,8 +17,8 @@ jobs:
         with:
           node-version: "16"
 
-      - run: npm install
       - run: npm install --global yarn
+      - run: yarn install --frozen-lockfile
 
       - name: Check chain updates
         id: check-update
