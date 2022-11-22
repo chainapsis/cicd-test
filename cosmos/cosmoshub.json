@@ -1,6 +1,6 @@
 {
   "chainId": "cosmoshub-4",
-  "chainName": "Cosmoshub test",
+  "chainName": "Cosmoshub",
   "rpc": "https://rpc-cosmoshub.keplr.app",
   "rest": "https://lcd-cosmoshub.keplr.app",
   "walletUrlForStaking": "https://wallet.keplr.app/chains/cosmos-hub",
