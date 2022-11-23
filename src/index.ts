@@ -16,7 +16,7 @@ const main = async () => {
     const chainInfo = await validateChainInfoFromPath(path);
 
     const shouldNodeProvider = (() => {
-      const nativeChains: string[] = ["cosmoshub", "juno", "shentu"];
+      const nativeChains: string[] = ["cosmoshub", "juno", "shentu-2.2"];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
       return !nativeChains.map((s) => s.trim()).includes(chainIdentifier);
