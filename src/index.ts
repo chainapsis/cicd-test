@@ -16,22 +16,10 @@ const main = async () => {
     const chainInfo = await validateChainInfoFromPath(path);
 
     const shouldNodeProvider = (() => {
-      const nativeChains = process.env["NATIVE_CHAINS"];
-      if (nativeChains) {
-        const chainIdentifier = ChainIdHelper.parse(
-          chainInfo.chainId
-        ).identifier;
+      const nativeChains: string[] = ["cosmoshub", "juno"];
+      const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
-        if (
-          nativeChains
-            .split(",")
-            .map((s) => s.trim())
-            .includes(chainIdentifier)
-        ) {
-          return false;
-        }
-      }
-      return true;
+      return !nativeChains.map((s) => s.trim()).includes(chainIdentifier);
     })();
     if (shouldNodeProvider && !chainInfo.nodeProvider) {
       throw new Error("Node provider should be provided");
