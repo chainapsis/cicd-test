@@ -54,6 +54,7 @@
     }
   ],
   "features": [
-    "cosmwasm"
+    "cosmwasm",
+    "ibc-go"
   ]
 }
