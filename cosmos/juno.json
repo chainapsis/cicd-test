@@ -54,9 +54,6 @@
     }
   ],
   "features": [
-    "cosmwasm",
-    "ibc-transfer",
-    "ibc-go",
-    "wasmd_0.24+"
+    "cosmwasm"
   ]
 }
