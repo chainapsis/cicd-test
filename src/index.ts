@@ -29,6 +29,7 @@ const main = async () => {
         "gravity-bridge",
         "impacthub",
         "iov-mainnet-ibc",
+        "irishub",
       ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
