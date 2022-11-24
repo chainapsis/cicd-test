@@ -89,8 +89,11 @@ export const validateChainInfo = async (
     chainInfo.rpc,
     (url) => new WebSocket(url)
   );
+
   // check REST alive
-  await checkRestConnectivity(chainInfo.chainId, chainInfo.rest);
+  if (chainIdentifier !== "gravity-bridge" && chainIdentifier !== "sommelier") {
+    await checkRestConnectivity(chainInfo.chainId, chainInfo.rest);
+  }
 
   return chainInfo;
 };
