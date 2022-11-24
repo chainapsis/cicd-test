@@ -38,6 +38,7 @@ const main = async () => {
         "sifchain",
         "sommelier",
         "stargaze",
+        "stride",
       ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
