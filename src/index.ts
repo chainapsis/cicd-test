@@ -31,6 +31,7 @@ const main = async () => {
         "iov-mainnet-ibc",
         "irishub",
         "kava_2222",
+        "regen",
       ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
