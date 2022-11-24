@@ -39,6 +39,7 @@ const main = async () => {
         "sommelier",
         "stargaze",
         "stride",
+        "tgrade-mainnet",
       ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
