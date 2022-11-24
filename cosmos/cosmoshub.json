@@ -1,46 +1,46 @@
 {
-  "chainId": "cosmoshub-4",
-  "chainName": "Cosmoshub",
-  "rpc": "https://rpc-cosmoshub.keplr.app",
-  "rest": "https://lcd-cosmoshub.keplr.app",
-  "walletUrlForStaking": "https://wallet.keplr.app/chains/cosmos-hub",
-  "bip44": {
-    "coinType": 118
-  },
   "bech32Config": {
     "bech32PrefixAccAddr": "cosmos",
     "bech32PrefixAccPub": "cosmospub",
-    "bech32PrefixValAddr": "cosmosvaloper",
-    "bech32PrefixValPub": "cosmosvaloperpub",
     "bech32PrefixConsAddr": "cosmosvalcons",
-    "bech32PrefixConsPub": "cosmosvalconspub"
+    "bech32PrefixConsPub": "cosmosvalconspub",
+    "bech32PrefixValAddr": "cosmosvaloper",
+    "bech32PrefixValPub": "cosmosvaloperpub"
   },
+  "bip44": {
+    "coinType": 118
+  },
+  "chainId": "cosmoshub-4",
+  "chainName": "Cosmoshub",
   "currencies": [
     {
-      "coinDenom": "ATOM",
-      "coinMinimalDenom": "uatom",
       "coinDecimals": 6,
-      "coinGeckoId": "cosmos"
+      "coinDenom": "ATOM",
+      "coinGeckoId": "cosmos",
+      "coinMinimalDenom": "uatom"
     }
   ],
+  "features": [],
   "feeCurrencies": [
     {
-      "coinDenom": "ATOM",
-      "coinMinimalDenom": "uatom",
       "coinDecimals": 6,
+      "coinDenom": "ATOM",
       "coinGeckoId": "cosmos",
+      "coinMinimalDenom": "uatom",
       "gasPriceStep": {
-        "low": 0.01,
         "average": 0.025,
-        "high": 0.03
+        "high": 0.03,
+        "low": 0.01
       }
     }
   ],
+  "rest": "https://lcd-cosmoshub.keplr.app",
+  "rpc": "https://rpc-cosmoshub.keplr.app",
   "stakeCurrency": {
-    "coinDenom": "ATOM",
-    "coinMinimalDenom": "uatom",
     "coinDecimals": 6,
-    "coinGeckoId": "cosmos"
+    "coinDenom": "ATOM",
+    "coinGeckoId": "cosmos",
+    "coinMinimalDenom": "uatom"
   },
-  "features": []
+  "walletUrlForStaking": "https://wallet.keplr.app/chains/cosmos-hub"
 }
