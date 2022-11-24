@@ -16,7 +16,33 @@ const main = async () => {
     const chainInfo = await validateChainInfoFromPath(path);
 
     const shouldNodeProvider = (() => {
-      const nativeChains: string[] = ["cosmoshub", "osmosis", "juno"];
+      const nativeChains: string[] = [
+        "cosmoshub",
+        "osmosis",
+        "juno",
+        "agoric",
+        "akashnet",
+        "axelar-dojo",
+        "bostrom",
+        "core",
+        "emoney",
+        "evmos_9001",
+        "gravity-bridge",
+        "impacthub",
+        "iov-mainnet-ibc",
+        "irishub",
+        "kava_2222",
+        "regen",
+        "secret",
+        "sentinelhub",
+        "shentu-2.2",
+        "sifchain",
+        "sommelier",
+        "stargaze",
+        "stride",
+        "tgrade-mainnet",
+        "umee",
+      ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
       return !nativeChains.map((s) => s.trim()).includes(chainIdentifier);
