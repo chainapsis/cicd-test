@@ -1,0 +1,59 @@
+{
+  "rpc": "https://rpc-gravity-bridge.keplr.app",
+  "rest": "https://lcd-gravity-bridge.keplr.app",
+  "chainId": "gravity-bridge-3",
+  "chainName": "Gravity Bridge",
+  "stakeCurrency": {
+    "coinDenom": "GRAV",
+    "coinMinimalDenom": "ugraviton",
+    "coinDecimals": 6
+  },
+  "walletUrl": "https://wallet.keplr.app/chains/gravity-bridge",
+  "walletUrlForStaking": "https://wallet.keplr.app/chains/gravity-bridge",
+  "bip44": {
+    "coinType": 118
+  },
+  "bech32Config": {
+    "bech32PrefixAccAddr": "gravity",
+    "bech32PrefixAccPub": "gravitypub",
+    "bech32PrefixValAddr": "gravityvaloper",
+    "bech32PrefixValPub": "gravityvaloperpub",
+    "bech32PrefixConsAddr": "gravityvalcons",
+    "bech32PrefixConsPub": "gravityvalconspub"
+  },
+  "currencies": [
+    {
+      "coinDenom": "GRAV",
+      "coinMinimalDenom": "ugraviton",
+      "coinDecimals": 6
+    }
+  ],
+  "feeCurrencies": [
+    {
+      "coinDenom": "GRAV",
+      "coinMinimalDenom": "ugraviton",
+      "coinDecimals": 6
+    },
+    {
+      "coinDenom": "USDC",
+      "coinMinimalDenom": "gravity0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+      "coinDecimals": 6,
+      "gasPriceStep": {
+        "low": 0.0002,
+        "average": 0.0005,
+        "high": 0.0008
+      }
+    },
+    {
+      "coinDenom": "USDT",
+      "coinMinimalDenom": "gravity0xdAC17F958D2ee523a2206206994597C13D831ec7",
+      "coinDecimals": 6,
+      "gasPriceStep": {
+        "low": 0.0002,
+        "average": 0.0005,
+        "high": 0.0008
+      }
+    }
+  ],
+  "features": []
+}
