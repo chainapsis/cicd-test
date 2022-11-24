@@ -30,6 +30,7 @@ const main = async () => {
         "impacthub",
         "iov-mainnet-ibc",
         "irishub",
+        "kava_2222",
       ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
