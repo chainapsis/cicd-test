@@ -33,6 +33,7 @@ const main = async () => {
         "kava_2222",
         "regen",
         "secret",
+        "sentinelhub",
       ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
