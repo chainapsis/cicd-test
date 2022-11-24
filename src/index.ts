@@ -18,6 +18,7 @@ const main = async () => {
     const shouldNodeProvider = (() => {
       const nativeChains: string[] = [
         "cosmoshub",
+        "osmosis",
         "juno",
         "agoric",
         "akashnet",
