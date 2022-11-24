@@ -32,6 +32,7 @@ const main = async () => {
         "irishub",
         "kava_2222",
         "regen",
+        "secret",
       ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
