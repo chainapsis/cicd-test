@@ -37,6 +37,7 @@ const main = async () => {
         "shentu-2.2",
         "sifchain",
         "sommelier",
+        "stargaze",
       ];
       const chainIdentifier = ChainIdHelper.parse(chainInfo.chainId).identifier;
 
