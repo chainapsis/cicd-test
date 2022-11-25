@@ -11,7 +11,7 @@
     "coinType": 118
   },
   "chainId": "cosmoshub-4",
-  "chainName": "Cosmoshub",
+  "chainName": "Cosmos Hub",
   "currencies": [
     {
       "coinDecimals": 6,
